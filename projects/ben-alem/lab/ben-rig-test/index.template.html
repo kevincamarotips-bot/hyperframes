@@ -1,0 +1,87 @@
+<!doctype html>
+<!--
+  Folha de teste do rig do Ben (não é cena). Exercita cada articulação com
+  amplitudes acima do uso normal para provar que nenhuma parte abre buraco.
+  Gerado por tools/make_lab.py: o SVG e o rig.json são embutidos no lugar dos
+  marcadores (a arte do livro não é versionada).
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #009fe3; }
+      #root { position: relative; width: 1920px; height: 1080px; background: #009fe3; }
+      #ground { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; background: #000; }
+      #stage { position: absolute; left: 260px; top: 40px; width: 1398px; height: 972px; overflow: visible; }
+      #stage svg { overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="ben-rig-test" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+      <div id="ground"></div>
+      <div id="stage"><!--BEN_SVG--></div>
+    </div>
+    <script type="module">
+      /*__RIG_JS__*/
+      const rigDef = /*__RIG_JSON__*/ null;
+      const rig = createRig(document.querySelector("#ben"), rigDef);
+      const B = (n) => rig.bone(n);
+
+      // Timeline do personagem (pausada) — amostrada em twos pela timeline raiz.
+      const ben = gsap.timeline({ paused: true });
+
+      // 0.0–0.6 respiração sutil ancorada no chão (volume preservado: sx = 1/sy)
+      ben.to(B("root"), { sy: 1.02, sx: 1 / 1.02, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+
+      // 0.5 olhar: olhos lideram, cabeça segue, orelhas atrasam e assentam
+      ben.to([B("eye_back_pupil"), B("eye_front_pupil")], { x: 38, y: -42, duration: 0.15, ease: "power2.out" }, 0.5);
+      ben.to(B("head"), { rot: -9, duration: 0.3, ease: "power2.inOut" }, 0.6);
+      ben.to([B("ear_back"), B("ear_front")], { rot: -16, duration: 0.25, ease: "power2.in", stagger: 0.04 }, 0.68);
+      ben.to([B("ear_back"), B("ear_front")], { rot: 0, duration: 0.7, ease: "elastic.out(1, 0.35)", stagger: 0.04 }, 0.93);
+
+      // 1.25 piscada (slot: 0 aberto, 2 fechado reto)
+      ben.set([rig.slot("eye_back"), rig.slot("eye_front")], { i: 2 }, 1.25);
+      ben.set([rig.slot("eye_back"), rig.slot("eye_front")], { i: 0 }, 1.35);
+
+      // 1.5 cauda abanando com decaimento
+      ben.to(B("tail"), { keyframes: [
+        { rot: 22, duration: 0.12, ease: "sine.out" }, { rot: -14, duration: 0.18, ease: "sine.inOut" },
+        { rot: 16, duration: 0.18, ease: "sine.inOut" }, { rot: -8, duration: 0.18, ease: "sine.inOut" },
+        { rot: 0, duration: 0.3, ease: "sine.out" },
+      ] }, 1.5);
+      ben.to(B("head"), { rot: 0, duration: 0.4, ease: "power2.inOut" }, 1.6);
+      ben.to([B("eye_back_pupil"), B("eye_front_pupil")], { x: 0, y: 0, duration: 0.2, ease: "power2.inOut" }, 1.55);
+
+      // 2.5 antecipação → pulo → aterrissagem → recuperação
+      ben.to(B("root"), { sy: 0.82, sx: 1 / 0.82, duration: 0.3, ease: "power2.in" }, 2.5);
+      ben.to(B("head"), { rot: 6, y: 18, duration: 0.3, ease: "power2.in" }, 2.5);
+      ben.to(B("root"), { sy: 1.16, sx: 1 / 1.16, y: -60, duration: 0.1, ease: "expo.out" }, 2.8);
+      ben.to(B("root"), { y: -230, sy: 1, sx: 1, duration: 0.32, ease: "power2.out" }, 2.9);
+      ben.to(B("head"), { rot: -4, y: 0, duration: 0.3, ease: "power2.out" }, 2.85);
+      ben.to([B("ear_back"), B("ear_front")], { rot: 24, duration: 0.15, ease: "power2.out", stagger: 0.03 }, 2.82);
+      ben.to(B("tail"), { rot: 28, duration: 0.2, ease: "power2.out" }, 2.85);
+      ben.to(["paw_back_a", "paw_back_b", "paw_front_a", "paw_front_b"].map(B), { y: -14, rot: (i) => [-12, 10, -10, 12][i], duration: 0.15, ease: "power2.out", stagger: 0.02 }, 2.85);
+      ben.to(B("root"), { y: 0, sy: 1.08, sx: 1 / 1.08, duration: 0.3, ease: "power2.in" }, 3.22);
+      ben.to([B("ear_back"), B("ear_front")], { rot: -30, duration: 0.3, ease: "power2.in" }, 3.22);
+      ben.to(["paw_back_a", "paw_back_b", "paw_front_a", "paw_front_b"].map(B), { y: 0, rot: 0, duration: 0.2, ease: "power2.in" }, 3.3);
+      ben.to(B("root"), { sy: 0.78, sx: 1 / 0.78, duration: 0.07, ease: "none" }, 3.52);
+      ben.to(B("root"), { sy: 1, sx: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }, 3.59);
+      ben.to([B("ear_back"), B("ear_front")], { rot: 0, duration: 1.0, ease: "elastic.out(1, 0.3)", stagger: 0.05 }, 3.56);
+      ben.to(B("tail"), { rot: 0, duration: 0.9, ease: "elastic.out(1, 0.35)" }, 3.6);
+      ben.to(B("head"), { rot: 0, duration: 0.6, ease: "back.out(1.6)" }, 3.56);
+      ben.set([rig.slot("eye_back"), rig.slot("eye_front")], { i: 1 }, 3.9); // olhos felizes no final
+      ben.set({}, {}, 5);
+
+      // Twos: a raiz anda a timeline do personagem em degraus de 1/15 s.
+      const DURATION = 5;
+      const tl = gsap.timeline({ paused: true });
+      tl.add(ben.tweenFromTo(0, DURATION, { ease: `steps(${DURATION * 15})`, duration: DURATION }), 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["ben-rig-test"] = tl;
+    </script>
+  </body>
+</html>

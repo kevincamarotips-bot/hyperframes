@@ -1,5 +1,7 @@
 # Ben Além: especificação técnica de animação (v0.1, para aprovação)
 
+> **Decisão posterior do cliente (substitui a opção A da seção 4.1):** os originais dos personagens são PSD e não existe SVG deles. O cliente decidiu **recriar os personagens em SVG a partir das imagens do PDF**, com as partes do corpo separadas para o rig. A implementação do Ben está descrita em [`02-ben-svg-rig.md`](02-ben-svg-rig.md). O restante deste documento continua valendo: timing, exposição, easing, deformação, revisão e biblioteca de movimentos. A deformação localizada do tronco passa a ser feita com deformação de path SVG em vez de malha WebGL.
+
 Documento de implementação da etapa 20 da _Animation Motion Bible_. **Nenhuma cena do livro foi produzida.** O que existe é um teste técnico isolado (seção 3.3), feito com uma pose extraída do PDF de prova para confirmar que a abordagem proposta funciona no pipeline de render do HyperFrames.
 
 ---
