@@ -34,16 +34,23 @@ export function createRig(svgRoot, rigDef) {
   }
   const partBone = (part) => (rigDef.partBones && rigDef.partBones[part]) || part;
 
+  const describe = (el) => {
+    const ancestor = el.parentElement && el.parentElement.closest("[data-part]");
+    return {
+      el,
+      bone: partBone(el.dataset.part),
+      domParentBone: ancestor ? partBone(ancestor.dataset.part) : null,
+    };
+  };
   const elements = [...svgRoot.querySelectorAll("[data-part]")]
     .filter((el) => bones.has(partBone(el.dataset.part)))
-    .map((el) => {
-      const ancestor = el.parentElement && el.parentElement.closest("[data-part]");
-      return {
-        el,
-        bone: partBone(el.dataset.part),
-        domParentBone: ancestor ? partBone(ancestor.dataset.part) : null,
-      };
-    });
+    .map(describe);
+
+  /** Prende um elemento criado depois (efeitos, acessórios) ao osso do seu data-part. */
+  function register(el) {
+    elements.push(describe(el));
+    if (ready) update();
+  }
 
   function local(b) {
     const { x, y, rot, sx, sy } = b.state;
@@ -112,12 +119,27 @@ export function createRig(svgRoot, rigDef) {
     return slots.get(partName);
   }
 
+  /** Agrupa várias atribuições num único recálculo de transforms. */
+  function batch(fn) {
+    const was = ready;
+    ready = false;
+    try {
+      fn();
+    } finally {
+      ready = was;
+      if (ready) update();
+    }
+  }
+
   ready = true;
   update();
 
   return {
     bone: (name) => bones.get(name).state,
     bones,
+    svg: svgRoot,
+    register,
+    batch,
     update,
     worldPoint,
     setSlot,
