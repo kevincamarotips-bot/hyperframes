@@ -1,0 +1,137 @@
+<!doctype html>
+<!--
+  Teste de rig do elenco (não é cena): cada personagem num quadro, com um
+  movimento característico que exercita os ossos dele.
+  Gerado por tools/make_cast_lab.py (SVGs e rigs embutidos nos marcadores).
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #111; }
+      #root { position: relative; width: 1920px; height: 1080px; background: #111;
+        display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6px; padding: 6px; }
+      .cell { position: relative; background: #009fe3; overflow: hidden; }
+      .cell svg { position: absolute; inset: 14px 14px 30px 14px; width: calc(100% - 28px); height: calc(100% - 44px); overflow: visible; }
+      .cell span { position: absolute; left: 10px; bottom: 6px; font: 600 16px/1 sans-serif; color: #fff; text-shadow: 0 1px 2px #000; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="cast-rig-test" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <!--CAST_SVGS-->
+    </div>
+    <script type="module">
+      /*__RIG_JS__*/
+      const RIGS = /*__CAST_RIGS__*/ null;
+      const D = 6;
+      const tl = gsap.timeline({ paused: true });
+      const rigs = {};
+      for (const [name, def] of Object.entries(RIGS)) rigs[name] = createRig(document.getElementById(name), def);
+
+      // oscilação senoidal finita de um canal: amplitude, período, atraso (overlap)
+      function osc(state, prop, amp, period, delay = 0, base = 0) {
+        const cycles = Math.floor((D - delay) / period);
+        tl.fromTo(state, { [prop]: base - amp }, { [prop]: base + amp, duration: period / 2, ease: "sine.inOut",
+          yoyo: true, repeat: cycles * 2 - 1, immediateRender: false }, delay);
+        tl.set(state, { [prop]: base - amp }, 0);
+      }
+      function blink(rig, eyes, at) {
+        const s = eyes.map((e) => rig.slot(e));
+        tl.set(s, { i: 2 }, at);
+        tl.set(s, { i: 0 }, at + 0.12);
+      }
+      const B = (c, b) => rigs[c].bone(b);
+
+      // salsicha: pulando atrás do disco — mandíbula morde, pernas pedalam, orelhas e cauda com atraso
+      osc(B("salsicha", "root"), "y", 14, 1.2);
+      osc(B("salsicha", "jaw"), "rot", 9, 0.6, 0.1);
+      osc(B("salsicha", "front_leg_a"), "rot", 16, 0.6, 0.05);
+      osc(B("salsicha", "front_leg_b"), "rot", 16, 0.6, 0.3);
+      osc(B("salsicha", "back_leg_a"), "rot", 12, 0.6, 0.2);
+      osc(B("salsicha", "back_leg_b"), "rot", 12, 0.6, 0.45);
+      osc(B("salsicha", "ear_l"), "rot", 12, 1.2, 0.25);
+      osc(B("salsicha", "ear_r"), "rot", 12, 1.2, 0.35);
+      osc(B("salsicha", "tail"), "rot", 18, 0.5);
+      blink(rigs.salsicha, ["eye_l", "eye_r"], 2.2);
+
+      // preguiças: balançam no trapézio (pivô no alto das cordas), corpo e braço com atraso
+      for (const [c, ph] of [["preguica_a", 0], ["preguica_b", 1.2]]) {
+        osc(B(c, "root"), "rot", 5, 2.4, ph);
+        // corpo e braços giram juntos em torno das mãos na barra: a junta do ombro não descola
+        for (const part of ["body", "arm_a", "arm_b"]) osc(B(c, part), "rot", 4, 2.4, ph + 0.25);
+        osc(B(c, "head"), "rot", 6, 2.4, ph + 0.4);
+        osc(B(c, "arm_reach"), "rot", 10, 2.4, ph + 0.5);
+        blink(rigs[c], ["eye_a", "eye_b"], 3 + ph);
+      }
+
+      // porco-espinho: flutua, balões balançam com atraso, patinhas soltas
+      osc(B("porco_espinho", "root"), "y", 10, 2);
+      osc(B("porco_espinho", "root"), "rot", 3, 3, 0.3);
+      osc(B("porco_espinho", "balloons"), "rot", 4, 3, 0.8);
+      osc(B("porco_espinho", "leg_a"), "rot", 14, 1.4, 0.2);
+      osc(B("porco_espinho", "leg_b"), "rot", 14, 1.4, 0.5);
+      osc(B("porco_espinho", "head"), "rot", 6, 2, 0.4);
+      blink(rigs.porco_espinho, ["eye"], 2.6);
+
+      // galinha: plana na asa-delta, corpo pendular, asa e cabeça
+      osc(B("galinha", "root"), "y", 10, 2.2);
+      osc(B("galinha", "root"), "rot", 2, 2.2, 0.5);
+      osc(B("galinha", "body"), "rot", 4, 2.2, 0.8);
+      osc(B("galinha", "wing"), "rot", 12, 0.8, 0.2);
+      osc(B("galinha", "head"), "rot", 7, 1.1, 0.3);
+      osc(B("galinha", "leg"), "rot", 10, 1.1, 0.5);
+      blink(rigs.galinha, ["eye"], 3.4);
+
+      // elefante: balança sob o paraquedas, tromba, braço, perna e cauda
+      osc(B("elefante", "body"), "rot", 4, 2.6);
+      osc(B("elefante", "canopy"), "rot", 2, 2.6, 0.3);
+      osc(B("elefante", "trunk"), "rot", 9, 1.6, 0.4);
+      osc(B("elefante", "arm"), "rot", 10, 1.3, 0.2);
+      osc(B("elefante", "leg"), "rot", 8, 1.3, 0.6);
+      osc(B("elefante", "tail"), "rot", 10, 1.3, 0.8);
+      blink(rigs.elefante, ["eye"], 2);
+
+      // pinguim: hélice girando, avião em acrobacia leve, nadadeira acenando
+      tl.fromTo(B("pinguim", "propeller"), { rot: 0 }, { rot: -360 * 18, duration: D, ease: "none", immediateRender: false }, 0);
+      osc(B("pinguim", "root"), "rot", 4, 3);
+      osc(B("pinguim", "root"), "y", 12, 1.5);
+      osc(B("pinguim", "flipper"), "rot", 18, 0.7, 0.2);
+      osc(B("pinguim", "head"), "rot", 5, 1.4, 0.3);
+
+      // tartaruga: foguete vibra, chama tremula em degraus, cabeça e braços nos manches
+      osc(B("tartaruga", "root"), "x", 2, 0.1);
+      tl.fromTo(B("tartaruga", "flame"), { sy: 0.9 }, { sy: 1.12, duration: 0.2, ease: "steps(2)", yoyo: true, repeat: 29, immediateRender: false }, 0);
+      tl.fromTo(B("tartaruga", "flame_core"), { sy: 1.08 }, { sy: 0.92, duration: 0.14, ease: "steps(2)", yoyo: true, repeat: 41, immediateRender: false }, 0);
+      osc(B("tartaruga", "head"), "rot", 6, 1.6, 0.3);
+      osc(B("tartaruga", "arm_a"), "rot", 6, 0.8);
+      osc(B("tartaruga", "arm_b"), "rot", 6, 0.8, 0.4);
+      osc(B("tartaruga", "joystick"), "rot", 6, 0.8, 0.1);
+      blink(rigs.tartaruga, ["eye_a", "eye_b"], 2.8);
+
+      // alienígena: disco flutua, acena, olhar varre
+      osc(B("alienigena", "root"), "y", 8, 2);
+      osc(B("alienigena", "root"), "rot", 3, 3, 0.4);
+      osc(B("alienigena", "arm"), "rot", 20, 0.6, 0.1);
+      osc(B("alienigena", "head"), "rot", 5, 1.5, 0.3);
+      osc(B("alienigena", "eye_l_pupil"), "x", 3, 2, 0.5);
+      osc(B("alienigena", "eye_r_pupil"), "x", 3, 2, 0.5);
+
+      // cavalo astronauta: braços para cima acenando, orelhas e cauda com atraso
+      osc(B("cavalo", "arm_l"), "rot", 14, 1, 0);
+      osc(B("cavalo", "arm_r"), "rot", 14, 1, 0.5);
+      osc(B("cavalo", "head"), "rot", 5, 2, 0.2);
+      osc(B("cavalo", "ear_l"), "rot", 10, 1, 0.35);
+      osc(B("cavalo", "ear_r"), "rot", 10, 1, 0.45);
+      osc(B("cavalo", "tail"), "rot", 14, 1.2, 0.3);
+      osc(B("cavalo", "body"), "y", 4, 1);
+      blink(rigs.cavalo, ["eye_l", "eye_r"], 3.6);
+
+      tl.set({}, {}, D);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["cast-rig-test"] = tl;
+    </script>
+  </body>
+</html>

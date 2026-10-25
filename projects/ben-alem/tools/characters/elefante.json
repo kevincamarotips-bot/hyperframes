@@ -1,0 +1,245 @@
+{
+  "name": "elefante",
+  "source": "img-053.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 15 (661×962 px), com o paraquedas",
+  "upscale": 2,
+  "smooth": 0.5,
+  "palette": {
+    "grey": "#969696",
+    "black": "#000000",
+    "white": "#fdfdfd",
+    "line": "#666666"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [175, 120]
+    },
+    {
+      "name": "canopy",
+      "parent": "root",
+      "pivot": [175, 70]
+    },
+    {
+      "name": "lines",
+      "parent": "root",
+      "pivot": [175, 120]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [150, 430]
+    },
+    {
+      "name": "pack",
+      "parent": "body",
+      "pivot": [150, 430]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [340, 540]
+    },
+    {
+      "name": "trunk",
+      "parent": "head",
+      "pivot": [452, 500]
+    },
+    {
+      "name": "eye",
+      "parent": "head",
+      "pivot": [415, 440]
+    },
+    {
+      "name": "eye_pupil",
+      "parent": "eye",
+      "pivot": [415, 440]
+    },
+    {
+      "name": "arm",
+      "parent": "body",
+      "pivot": [440, 612]
+    },
+    {
+      "name": "leg",
+      "parent": "body",
+      "pivot": [420, 790]
+    },
+    {
+      "name": "tail",
+      "parent": "body",
+      "pivot": [150, 900]
+    }
+  ],
+  "parts": [
+    {
+      "name": "canopy",
+      "bone": "canopy",
+      "priority": 1,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [8, 0],
+        [342, 0],
+        [342, 136],
+        [8, 136]
+      ]
+    },
+    {
+      "name": "lines",
+      "bone": "lines",
+      "priority": 2,
+      "under": "black",
+      "layers": [["black"]],
+      "clean": 0,
+      "fillHoles": false,
+      "region": [
+        [8, 118],
+        [342, 118],
+        [192, 438],
+        [128, 438]
+      ]
+    },
+    {
+      "name": "tail",
+      "bone": "tail",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"]],
+      "region": [
+        [118, 884],
+        [430, 952],
+        [430, 992],
+        [146, 992],
+        [118, 924]
+      ],
+      "extend": [
+        [120, 870],
+        [180, 870],
+        [180, 910],
+        [120, 910]
+      ]
+    },
+    {
+      "name": "leg",
+      "bone": "leg",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"], ["white"]],
+      "region": [
+        [400, 758],
+        [446, 762],
+        [516, 838],
+        [494, 878],
+        [440, 862],
+        [400, 832]
+      ],
+      "extend": [
+        [380, 760],
+        [430, 760],
+        [430, 830],
+        [380, 830]
+      ]
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "priority": 9,
+      "under": "grey",
+      "layers": [["grey"], ["black"]]
+    },
+    {
+      "name": "arm",
+      "bone": "arm",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"], ["white"]],
+      "region": [
+        [436, 582],
+        [524, 584],
+        [518, 632],
+        [444, 702],
+        [424, 694]
+      ],
+      "extend": [
+        [396, 590],
+        [446, 590],
+        [446, 690],
+        [396, 690]
+      ]
+    },
+    {
+      "name": "pack",
+      "bone": "pack",
+      "priority": 2,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [40, 400],
+        [232, 400],
+        [232, 470],
+        [150, 560],
+        [80, 604],
+        [40, 560]
+      ]
+    },
+    {
+      "name": "trunk",
+      "bone": "trunk",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"]],
+      "region": [
+        [456, 468],
+        [600, 448],
+        [620, 366],
+        [680, 362],
+        [676, 424],
+        [642, 482],
+        [562, 528],
+        [472, 528],
+        [446, 562]
+      ],
+      "extend": [
+        [420, 470],
+        [470, 470],
+        [470, 540],
+        [420, 540]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 4,
+      "under": "grey",
+      "layers": [["grey"], ["line"], ["black"]],
+      "region": [
+        [288, 392],
+        [462, 378],
+        [468, 470],
+        [448, 560],
+        [430, 604],
+        [330, 592],
+        [288, 520]
+      ],
+      "extend": [
+        [300, 520],
+        [440, 520],
+        [440, 610],
+        [300, 610]
+      ]
+    },
+    {
+      "name": "eye",
+      "type": "eye",
+      "bone": "eye",
+      "region": [
+        [384, 408],
+        [448, 408],
+        [448, 472],
+        [384, 472]
+      ]
+    }
+  ]
+}

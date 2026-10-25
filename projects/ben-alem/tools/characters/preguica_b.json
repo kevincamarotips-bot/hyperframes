@@ -1,0 +1,219 @@
+{
+  "name": "preguica_b",
+  "source": "img-041.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 12, bicho-preguiça da direita (387×464 px)",
+  "upscale": 3,
+  "smooth": 0.4,
+  "palette": {
+    "grey": "#a29d96",
+    "dark": "#7a7671",
+    "black": "#010101",
+    "white": "#fdfdfd",
+    "light": "#cac6c1"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [589, -400]
+    },
+    {
+      "name": "bar",
+      "parent": "root",
+      "pivot": [320, 44]
+    },
+    {
+      "name": "arm_a",
+      "parent": "bar",
+      "pivot": [276, 34]
+    },
+    {
+      "name": "arm_b",
+      "parent": "bar",
+      "pivot": [322, 58]
+    },
+    {
+      "name": "body",
+      "parent": "bar",
+      "pivot": [300, 46]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [190, 240]
+    },
+    {
+      "name": "eye_a",
+      "parent": "head",
+      "pivot": [106, 185]
+    },
+    {
+      "name": "eye_a_pupil",
+      "parent": "eye_a",
+      "pivot": [106, 185]
+    },
+    {
+      "name": "eye_b",
+      "parent": "head",
+      "pivot": [76, 232]
+    },
+    {
+      "name": "eye_b_pupil",
+      "parent": "eye_b",
+      "pivot": [76, 232]
+    },
+    {
+      "name": "arm_reach",
+      "parent": "body",
+      "pivot": [160, 285]
+    }
+  ],
+  "parts": [
+    {
+      "name": "bar",
+      "bone": "bar",
+      "priority": 1,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [254, 6],
+        [390, 56],
+        [382, 84],
+        [248, 32]
+      ],
+      "svg": "<path class=\"rope\" d=\"M262,22 L515,-400 M380,72 L663,-400\" stroke=\"#ffffff\" stroke-width=\"2\" fill=\"none\"/>"
+    },
+    {
+      "name": "arm_b",
+      "bone": "arm_b",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"], ["dark"], ["white", "light"]],
+      "region": [
+        [298, 28],
+        [348, 44],
+        [342, 110],
+        [336, 190],
+        [312, 216],
+        [268, 216],
+        [284, 150],
+        [298, 80]
+      ],
+      "extend": [
+        [262, 220],
+        [330, 220],
+        [330, 290],
+        [262, 290]
+      ]
+    },
+    {
+      "name": "arm_a",
+      "bone": "arm_a",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"], ["dark"], ["white", "light"]],
+      "region": [
+        [238, 14],
+        [298, 14],
+        [292, 70],
+        [242, 150],
+        [204, 210],
+        [154, 232],
+        [150, 192],
+        [200, 120]
+      ],
+      "extend": [
+        [150, 200],
+        [230, 200],
+        [230, 260],
+        [150, 260]
+      ]
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "priority": 2,
+      "under": "grey",
+      "layers": [["grey"], ["dark"]],
+      "region": [
+        [138, 232],
+        [200, 204],
+        [270, 214],
+        [332, 208],
+        [348, 250],
+        [322, 296],
+        [260, 314],
+        [190, 302],
+        [148, 282]
+      ],
+      "extend": [
+        [140, 196],
+        [216, 196],
+        [216, 276],
+        [140, 276]
+      ]
+    },
+    {
+      "name": "arm_reach",
+      "bone": "arm_reach",
+      "priority": 3,
+      "under": "grey",
+      "layers": [["grey"], ["white", "light"]],
+      "region": [
+        [0, 398],
+        [60, 328],
+        [128, 268],
+        [182, 258],
+        [172, 302],
+        [102, 372],
+        [42, 444],
+        [8, 456],
+        [0, 440]
+      ],
+      "extend": [
+        [140, 256],
+        [196, 256],
+        [196, 308],
+        [140, 308]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 1,
+      "under": "grey",
+      "layers": [["grey"], ["black"], ["dark"]],
+      "region": [
+        [38, 190],
+        [90, 148],
+        [172, 172],
+        [212, 220],
+        [192, 266],
+        [142, 278],
+        [68, 252]
+      ]
+    },
+    {
+      "name": "eye_a",
+      "type": "eye",
+      "bone": "eye_a",
+      "region": [
+        [88, 166],
+        [126, 166],
+        [126, 204],
+        [88, 204]
+      ]
+    },
+    {
+      "name": "eye_b",
+      "type": "eye",
+      "bone": "eye_b",
+      "region": [
+        [58, 213],
+        [96, 213],
+        [96, 252],
+        [58, 252]
+      ]
+    }
+  ]
+}

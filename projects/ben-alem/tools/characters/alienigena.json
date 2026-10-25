@@ -1,0 +1,168 @@
+{
+  "name": "alienigena",
+  "source": "img-081.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 21 (414×218 px), com o disco voador. Cúpula redesenhada (translúcida no original)",
+  "upscale": 4,
+  "smooth": 0.4,
+  "fallbackReach": 12,
+  "palette": {
+    "top": "#cbd65b",
+    "bottom": "#71a131",
+    "cockpit": "#1e755e",
+    "green": "#079f61",
+    "eyedark": "#054e55",
+    "eyeHL": "#558f9b",
+    "lightY": "#e6e39a",
+    "stick": "#c0e0e9",
+    "arm": "#58a883",
+    "edge": "#9ec144"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [207, 130]
+    },
+    {
+      "name": "ufo",
+      "parent": "root",
+      "pivot": [207, 130]
+    },
+    {
+      "name": "alien",
+      "parent": "ufo",
+      "pivot": [200, 115]
+    },
+    {
+      "name": "head",
+      "parent": "alien",
+      "pivot": [202, 90]
+    },
+    {
+      "name": "arm",
+      "parent": "alien",
+      "pivot": [168, 110]
+    },
+    {
+      "name": "eye_l",
+      "parent": "head",
+      "pivot": [187, 62]
+    },
+    {
+      "name": "eye_l_pupil",
+      "parent": "eye_l",
+      "pivot": [187, 62]
+    },
+    {
+      "name": "eye_r",
+      "parent": "head",
+      "pivot": [216, 65]
+    },
+    {
+      "name": "eye_r_pupil",
+      "parent": "eye_r",
+      "pivot": [216, 65]
+    }
+  ],
+  "parts": [
+    {
+      "name": "ufo",
+      "bone": "ufo",
+      "priority": 9,
+      "under": "top",
+      "layers": [["top", "edge"], ["bottom"], ["cockpit"], ["lightY"], ["stick"]]
+    },
+    {
+      "name": "dome",
+      "type": "svg",
+      "bone": "ufo",
+      "svg": "<path d=\"M110,100 C112,30 168,14 208,14 C250,14 298,32 300,100 Z\" fill=\"#ffffff\" opacity=\"0.14\"/>"
+    },
+    {
+      "name": "body",
+      "bone": "alien",
+      "priority": 2,
+      "under": "green",
+      "layers": [["green", "arm"]],
+      "region": [
+        [168, 86],
+        [232, 86],
+        [242, 120],
+        [164, 120]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 1,
+      "under": "green",
+      "layers": [["green"]],
+      "region": [
+        [168, 18],
+        [238, 18],
+        [240, 86],
+        [220, 100],
+        [188, 100],
+        [168, 82]
+      ]
+    },
+    {
+      "name": "arm",
+      "bone": "arm",
+      "priority": 1,
+      "under": "green",
+      "layers": [["green", "arm"]],
+      "region": [
+        [100, 38],
+        [132, 38],
+        [142, 102],
+        [168, 106],
+        [168, 120],
+        [118, 114],
+        [100, 70]
+      ],
+      "extend": [
+        [160, 100],
+        [178, 100],
+        [178, 118],
+        [160, 118]
+      ]
+    },
+    {
+      "name": "eye_l",
+      "type": "eye",
+      "bone": "eye_l",
+      "white": ["eyedark"],
+      "pupil": ["eyeHL"],
+      "pupilFill": "#558f9b",
+      "scleraGrow": 0.3,
+      "region": [
+        [170, 46],
+        [202, 46],
+        [202, 80],
+        [170, 80]
+      ]
+    },
+    {
+      "name": "eye_r",
+      "type": "eye",
+      "bone": "eye_r",
+      "white": ["eyedark"],
+      "pupil": ["eyeHL"],
+      "pupilFill": "#558f9b",
+      "scleraGrow": 0.3,
+      "region": [
+        [200, 48],
+        [232, 48],
+        [232, 82],
+        [200, 82]
+      ]
+    },
+    {
+      "name": "dome_glare",
+      "type": "svg",
+      "bone": "ufo",
+      "svg": "<path d=\"M128,78 C134,52 150,36 168,30\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\"0.5\"/>"
+    }
+  ]
+}

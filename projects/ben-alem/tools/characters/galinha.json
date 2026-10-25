@@ -1,0 +1,127 @@
+{
+  "name": "galinha",
+  "source": "img-051.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 14 (993×309 px), com a asa-delta",
+  "upscale": 3,
+  "smooth": 0.4,
+  "palette": {
+    "black": "#010001",
+    "tan": "#f1ba6e",
+    "light": "#fad7a6",
+    "brown": "#a47530",
+    "red": "#e33d17",
+    "white": "#fefefd"
+  },
+  "bones": [
+    { "name": "root", "parent": null, "pivot": [662, 60] },
+    { "name": "glider", "parent": "root", "pivot": [662, 60] },
+    { "name": "control_bar", "parent": "glider", "pivot": [664, 102] },
+    { "name": "body", "parent": "glider", "pivot": [650, 178] },
+    { "name": "wing", "parent": "body", "pivot": [640, 172] },
+    { "name": "head", "parent": "body", "pivot": [716, 186] },
+    { "name": "eye", "parent": "head", "pivot": [773, 178] },
+    { "name": "eye_pupil", "parent": "eye", "pivot": [773, 178] },
+    { "name": "leg", "parent": "body", "pivot": [572, 232] }
+  ],
+  "parts": [
+    {
+      "name": "glider",
+      "bone": "glider",
+      "priority": 1,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [0, 0],
+        [993, 0],
+        [993, 110],
+        [0, 110]
+      ]
+    },
+    {
+      "name": "leg",
+      "bone": "leg",
+      "priority": 2,
+      "under": "red",
+      "layers": [["red"]],
+      "region": [
+        [504, 214],
+        [584, 214],
+        [584, 258],
+        [504, 258]
+      ],
+      "extend": [
+        [574, 220],
+        [592, 220],
+        [592, 240],
+        [574, 240]
+      ]
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "priority": 9,
+      "under": "tan",
+      "layers": [["tan"], ["brown"], ["light"]]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 3,
+      "under": "brown",
+      "layers": [["brown"], ["red"], ["black"]],
+      "region": [
+        [706, 140],
+        [745, 150],
+        [812, 150],
+        [814, 214],
+        [760, 216],
+        [706, 206]
+      ],
+      "extend": [
+        [692, 168],
+        [716, 168],
+        [716, 200],
+        [692, 200]
+      ]
+    },
+    {
+      "name": "wing",
+      "bone": "wing",
+      "priority": 4,
+      "under": "light",
+      "layers": [["light"]],
+      "region": [
+        [612, 154],
+        [700, 150],
+        [742, 196],
+        [748, 254],
+        [602, 254],
+        [596, 200]
+      ]
+    },
+    {
+      "name": "eye",
+      "type": "eye",
+      "bone": "eye",
+      "region": [
+        [756, 162],
+        [792, 162],
+        [792, 196],
+        [756, 196]
+      ]
+    },
+    {
+      "name": "control_bar",
+      "bone": "control_bar",
+      "priority": 1,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [624, 104],
+        [702, 104],
+        [702, 300],
+        [624, 300]
+      ]
+    }
+  ]
+}

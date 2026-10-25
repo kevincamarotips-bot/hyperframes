@@ -1,0 +1,234 @@
+{
+  "name": "pinguim",
+  "source": "img-057.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 16 (1071×658 px), com o avião. Capô e hélice redesenhados (translúcidos no original)",
+  "upscale": 2,
+  "smooth": 0.5,
+  "fallbackReach": 20,
+  "palette": {
+    "dark": "#211329",
+    "black": "#000000",
+    "purple": "#512d57",
+    "grey": "#2e2f2e",
+    "white": "#fefefe",
+    "grey2": "#484747",
+    "pink": "#c697bd",
+    "mauve": "#684d68",
+    "violet": "#8a4591",
+    "lilac": "#a76da2",
+    "orange": "#e07a5f",
+    "skyblade": "#6fc3ea",
+    "bladeWing": "#4a3a5c"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [445, 369]
+    },
+    {
+      "name": "plane",
+      "parent": "root",
+      "pivot": [445, 369]
+    },
+    {
+      "name": "propeller",
+      "parent": "plane",
+      "pivot": [450, 370]
+    },
+    {
+      "name": "penguin",
+      "parent": "plane",
+      "pivot": [420, 250]
+    },
+    {
+      "name": "head",
+      "parent": "penguin",
+      "pivot": [418, 205]
+    },
+    {
+      "name": "flipper",
+      "parent": "penguin",
+      "pivot": [478, 226]
+    },
+    {
+      "name": "eye",
+      "parent": "head",
+      "pivot": [429, 154]
+    },
+    {
+      "name": "eye_pupil",
+      "parent": "eye",
+      "pivot": [429, 154]
+    }
+  ],
+  "parts": [
+    {
+      "name": "rudder",
+      "bone": "plane",
+      "priority": 2,
+      "under": "purple",
+      "layers": [["purple", "mauve"]],
+      "region": [
+        [380, 28],
+        [422, 28],
+        [422, 172],
+        [380, 172]
+      ]
+    },
+    {
+      "name": "wing_top",
+      "bone": "plane",
+      "priority": 1,
+      "under": "dark",
+      "layers": [["dark", "bladeWing", "mauve", "lilac"]],
+      "region": [
+        [0, 150],
+        [1000, 2],
+        [1000, 54],
+        [0, 204]
+      ]
+    },
+    {
+      "name": "struts",
+      "bone": "plane",
+      "priority": 2,
+      "under": "dark",
+      "layers": [["dark", "grey", "black"]],
+      "region": [
+        [868, 40],
+        [962, 40],
+        [962, 348],
+        [868, 348]
+      ]
+    },
+    {
+      "name": "small_wing",
+      "bone": "plane",
+      "priority": 2,
+      "under": "purple",
+      "layers": [["purple", "mauve", "violet"]],
+      "region": [
+        [148, 300],
+        [702, 204],
+        [708, 234],
+        [154, 324]
+      ]
+    },
+    {
+      "name": "penguin_body",
+      "bone": "penguin",
+      "priority": 3,
+      "under": "black",
+      "layers": [["black"], ["white"]],
+      "region": [
+        [352, 204],
+        [522, 204],
+        [522, 262],
+        [352, 262]
+      ]
+    },
+    {
+      "name": "flipper",
+      "bone": "flipper",
+      "priority": 3,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [468, 132],
+        [602, 132],
+        [602, 202],
+        [522, 258],
+        [468, 252]
+      ],
+      "extend": [
+        [452, 214],
+        [492, 214],
+        [492, 246],
+        [452, 246]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 3,
+      "under": "black",
+      "layers": [["black"], ["white"], ["dark"], ["orange"]],
+      "region": [
+        [352, 136],
+        [532, 138],
+        [532, 206],
+        [470, 216],
+        [356, 216]
+      ]
+    },
+    {
+      "name": "eye",
+      "type": "eye",
+      "bone": "eye",
+      "region": [
+        [410, 136],
+        [450, 136],
+        [450, 174],
+        [410, 174]
+      ]
+    },
+    {
+      "name": "gear_l",
+      "bone": "plane",
+      "priority": 2,
+      "under": "grey",
+      "layers": [["grey", "grey2", "dark"], ["black"]],
+      "region": [
+        [188, 430],
+        [302, 430],
+        [302, 660],
+        [188, 660]
+      ]
+    },
+    {
+      "name": "gear_r",
+      "bone": "plane",
+      "priority": 2,
+      "under": "grey",
+      "layers": [["grey", "grey2", "dark"], ["black"]],
+      "region": [
+        [618, 398],
+        [768, 398],
+        [768, 578],
+        [618, 578]
+      ]
+    },
+    {
+      "name": "wing_bottom",
+      "bone": "plane",
+      "priority": 1,
+      "under": "dark",
+      "layers": [["dark", "bladeWing", "mauve", "lilac", "violet"]],
+      "region": [
+        [0, 468],
+        [1071, 300],
+        [1071, 372],
+        [0, 542]
+      ]
+    },
+    {
+      "name": "cowl",
+      "type": "svg",
+      "bone": "plane",
+      "svg": "<circle cx=\"445\" cy=\"369\" r=\"138\" fill=\"#22132a\"/><circle cx=\"446\" cy=\"371\" r=\"121\" fill=\"#262626\"/><circle cx=\"446\" cy=\"371\" r=\"104\" fill=\"#000000\"/><circle cx=\"448\" cy=\"370\" r=\"49\" fill=\"#833c8d\"/><circle cx=\"452\" cy=\"370\" r=\"35\" fill=\"#c89ac2\"/>"
+    },
+    {
+      "name": "propeller",
+      "type": "svg",
+      "bone": "propeller",
+      "svg": "<g fill=\"#c9ecf8\" opacity=\"0.3\"><ellipse cx=\"450\" cy=\"370\" rx=\"232\" ry=\"24\" transform=\"rotate(8 450 370)\"/><ellipse cx=\"450\" cy=\"370\" rx=\"232\" ry=\"24\" transform=\"rotate(38 450 370)\"/><ellipse cx=\"450\" cy=\"370\" rx=\"232\" ry=\"24\" transform=\"rotate(-26 450 370)\"/></g><circle cx=\"452\" cy=\"370\" r=\"22\" fill=\"#d8b4d2\"/>"
+    },
+    {
+      "name": "spin_lines",
+      "type": "svg",
+      "bone": "plane",
+      "svg": "<path d=\"M318,208 C260,240 232,330 236,414 M265,500 C330,560 470,575 566,540 M302,232 C272,280 262,330 266,392\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" stroke-linecap=\"round\" opacity=\"0.85\"/>"
+    }
+  ]
+}

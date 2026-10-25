@@ -1,0 +1,347 @@
+{
+  "name": "salsicha",
+  "source": "img-014.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 5, último quadro (187×378 px)",
+  "upscale": 4,
+  "smooth": 0.5,
+  "palette": {
+    "tan": "#f0c284",
+    "black": "#030303",
+    "brown": "#c78e48",
+    "white": "#fdfdfc",
+    "pink": "#d76188"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [105, 220]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [105, 220]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [112, 118]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [98, 106]
+    },
+    {
+      "name": "ear_l",
+      "parent": "head",
+      "pivot": [100, 66]
+    },
+    {
+      "name": "ear_r",
+      "parent": "head",
+      "pivot": [124, 84]
+    },
+    {
+      "name": "eye_l",
+      "parent": "head",
+      "pivot": [80, 76]
+    },
+    {
+      "name": "eye_l_pupil",
+      "parent": "eye_l",
+      "pivot": [78, 78]
+    },
+    {
+      "name": "eye_r",
+      "parent": "head",
+      "pivot": [107, 90]
+    },
+    {
+      "name": "eye_r_pupil",
+      "parent": "eye_r",
+      "pivot": [102, 88]
+    },
+    {
+      "name": "front_leg_a",
+      "parent": "body",
+      "pivot": [78, 170]
+    },
+    {
+      "name": "front_leg_b",
+      "parent": "body",
+      "pivot": [88, 198]
+    },
+    {
+      "name": "back_leg_a",
+      "parent": "body",
+      "pivot": [78, 334]
+    },
+    {
+      "name": "back_leg_b",
+      "parent": "body",
+      "pivot": [90, 282]
+    },
+    {
+      "name": "tail",
+      "parent": "body",
+      "pivot": [128, 280]
+    }
+  ],
+  "parts": [
+    {
+      "name": "back_leg_a",
+      "bone": "back_leg_a",
+      "priority": 5,
+      "under": "tan",
+      "layers": [["tan"]],
+      "region": [
+        [38, 334],
+        [74, 325],
+        [80, 340],
+        [71, 351],
+        [42, 360]
+      ],
+      "extend": [
+        [68, 318],
+        [90, 318],
+        [90, 344],
+        [68, 344]
+      ]
+    },
+    {
+      "name": "front_leg_b",
+      "bone": "front_leg_b",
+      "priority": 5,
+      "under": "tan",
+      "layers": [["tan"]],
+      "region": [
+        [34, 186],
+        [93, 188],
+        [96, 202],
+        [80, 206],
+        [60, 202],
+        [56, 214],
+        [40, 222],
+        [34, 206]
+      ],
+      "extend": [
+        [78, 188],
+        [98, 188],
+        [98, 206],
+        [78, 206]
+      ]
+    },
+    {
+      "name": "tail",
+      "bone": "tail",
+      "priority": 4,
+      "under": "tan",
+      "layers": [["tan"], ["black"]],
+      "region": [
+        [124, 262],
+        [184, 262],
+        [184, 302],
+        [124, 302]
+      ],
+      "extend": [
+        [112, 268],
+        [134, 268],
+        [134, 296],
+        [112, 296]
+      ]
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "priority": 9,
+      "under": "tan",
+      "layers": [["tan"], ["black"]],
+      "region": [
+        [58, 126],
+        [142, 108],
+        [148, 150],
+        [148, 262],
+        [128, 282],
+        [110, 322],
+        [92, 338],
+        [88, 300],
+        [95, 276],
+        [72, 250],
+        [64, 200],
+        [60, 170]
+      ]
+    },
+    {
+      "name": "collar",
+      "bone": "body",
+      "priority": 3,
+      "under": "pink",
+      "layers": [["pink"]],
+      "region": [
+        [78, 112],
+        [136, 112],
+        [136, 142],
+        [78, 142]
+      ]
+    },
+    {
+      "name": "back_leg_b",
+      "bone": "back_leg_b",
+      "priority": 5,
+      "under": "tan",
+      "layers": [["tan"]],
+      "region": [
+        [70, 262],
+        [98, 262],
+        [93, 300],
+        [90, 330],
+        [96, 345],
+        [80, 362],
+        [60, 380],
+        [50, 372],
+        [70, 345],
+        [71, 330],
+        [70, 300]
+      ],
+      "extend": [
+        [80, 262],
+        [102, 262],
+        [102, 300],
+        [80, 300]
+      ]
+    },
+    {
+      "name": "front_leg_a",
+      "bone": "front_leg_a",
+      "priority": 5,
+      "under": "tan",
+      "layers": [["tan"]],
+      "region": [
+        [26, 148],
+        [74, 158],
+        [76, 184],
+        [50, 182],
+        [26, 172]
+      ],
+      "extend": [
+        [66, 158],
+        [86, 158],
+        [86, 182],
+        [66, 182]
+      ]
+    },
+    {
+      "name": "ear_l",
+      "bone": "ear_l",
+      "priority": 6,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [84, 0],
+        [128, 0],
+        [128, 60],
+        [100, 74],
+        [84, 70]
+      ],
+      "extend": [
+        [94, 60],
+        [112, 60],
+        [112, 76],
+        [94, 76]
+      ]
+    },
+    {
+      "name": "ear_r",
+      "bone": "ear_r",
+      "priority": 6,
+      "under": "black",
+      "layers": [["black"]],
+      "region": [
+        [128, 0],
+        [172, 0],
+        [166, 42],
+        [142, 92],
+        [116, 90],
+        [110, 70],
+        [128, 58]
+      ],
+      "extend": [
+        [116, 78],
+        [134, 78],
+        [134, 96],
+        [116, 96]
+      ]
+    },
+    {
+      "name": "jaw",
+      "bone": "jaw",
+      "priority": 2,
+      "under": "brown",
+      "layers": [["brown"], ["white"]],
+      "region": [
+        [33, 97],
+        [92, 97],
+        [102, 104],
+        [102, 124],
+        [38, 124],
+        [33, 110]
+      ],
+      "extend": [
+        [84, 100],
+        [104, 100],
+        [104, 120],
+        [84, 120]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 7,
+      "under": "brown",
+      "layers": [["brown"], ["black"], ["white"]],
+      "region": [
+        [4, 46],
+        [100, 50],
+        [132, 70],
+        [134, 112],
+        [100, 112],
+        [100, 104],
+        [88, 97],
+        [35, 95],
+        [22, 90],
+        [4, 64]
+      ],
+      "extend": [
+        [96, 104],
+        [130, 104],
+        [130, 128],
+        [96, 128]
+      ]
+    },
+    {
+      "name": "eye_l",
+      "type": "eye",
+      "bone": "eye_l",
+      "priority": 0,
+      "region": [
+        [64, 60],
+        [99, 60],
+        [99, 96],
+        [64, 96]
+      ]
+    },
+    {
+      "name": "eye_r",
+      "type": "eye",
+      "bone": "eye_r",
+      "priority": 0,
+      "region": [
+        [93, 74],
+        [123, 74],
+        [123, 108],
+        [93, 108]
+      ]
+    }
+  ]
+}

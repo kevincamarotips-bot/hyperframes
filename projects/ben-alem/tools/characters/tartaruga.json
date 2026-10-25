@@ -1,0 +1,245 @@
+{
+  "name": "tartaruga",
+  "source": "img-061.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 17 (464×1097 px), com o foguete",
+  "upscale": 2,
+  "smooth": 0.5,
+  "fallbackReach": 20,
+  "palette": {
+    "hull": "#0e202c",
+    "fin": "#14324a",
+    "ring": "#1675b2",
+    "flameO": "#edb266",
+    "flameR": "#e55216",
+    "shellD": "#5d8256",
+    "shellL": "#a6cc8f",
+    "shellM": "#7ab26f",
+    "white": "#f3f7f1",
+    "glare": "#8999a6",
+    "black": "#101010"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [218, 560]
+    },
+    {
+      "name": "rocket",
+      "parent": "root",
+      "pivot": [218, 560]
+    },
+    {
+      "name": "flame",
+      "parent": "rocket",
+      "pivot": [206, 620]
+    },
+    {
+      "name": "flame_core",
+      "parent": "flame",
+      "pivot": [206, 620]
+    },
+    {
+      "name": "turtle",
+      "parent": "rocket",
+      "pivot": [150, 280]
+    },
+    {
+      "name": "head",
+      "parent": "turtle",
+      "pivot": [212, 200]
+    },
+    {
+      "name": "arm_a",
+      "parent": "turtle",
+      "pivot": [210, 238]
+    },
+    {
+      "name": "arm_b",
+      "parent": "turtle",
+      "pivot": [210, 276]
+    },
+    {
+      "name": "eye_a",
+      "parent": "head",
+      "pivot": [257, 181]
+    },
+    {
+      "name": "eye_a_pupil",
+      "parent": "eye_a",
+      "pivot": [257, 181]
+    },
+    {
+      "name": "eye_b",
+      "parent": "head",
+      "pivot": [281, 183]
+    },
+    {
+      "name": "eye_b_pupil",
+      "parent": "eye_b",
+      "pivot": [281, 183]
+    },
+    {
+      "name": "joystick",
+      "parent": "rocket",
+      "pivot": [240, 300]
+    }
+  ],
+  "parts": [
+    {
+      "name": "flame",
+      "bone": "flame",
+      "priority": 1,
+      "under": "flameO",
+      "layers": [["flameO"]],
+      "region": [
+        [60, 600],
+        [400, 600],
+        [400, 1097],
+        [60, 1097]
+      ],
+      "fillHoles": false
+    },
+    {
+      "name": "flame_core",
+      "bone": "flame_core",
+      "priority": 1,
+      "under": "flameR",
+      "layers": [["flameR"]],
+      "region": [
+        [60, 600],
+        [400, 600],
+        [400, 1097],
+        [60, 1097]
+      ],
+      "fillHoles": false
+    },
+    {
+      "name": "rocket",
+      "bone": "rocket",
+      "priority": 9,
+      "under": "hull",
+      "layers": [["hull"], ["fin"], ["ring"], ["glare"]]
+    },
+    {
+      "name": "shell",
+      "bone": "turtle",
+      "priority": 2,
+      "under": "shellM",
+      "layers": [["shellM"], ["shellL"], ["shellD"]],
+      "region": [
+        [92, 142],
+        [206, 142],
+        [206, 306],
+        [92, 306]
+      ]
+    },
+    {
+      "name": "arm_a",
+      "bone": "arm_a",
+      "priority": 2,
+      "under": "shellM",
+      "layers": [["shellM"], ["shellL"], ["shellD"]],
+      "region": [
+        [206, 226],
+        [264, 226],
+        [264, 254],
+        [206, 254]
+      ],
+      "extend": [
+        [192, 228],
+        [212, 228],
+        [212, 250],
+        [192, 250]
+      ]
+    },
+    {
+      "name": "arm_b",
+      "bone": "arm_b",
+      "priority": 2,
+      "under": "shellM",
+      "layers": [["shellM"], ["shellL"], ["shellD"]],
+      "region": [
+        [206, 262],
+        [252, 262],
+        [252, 292],
+        [206, 292]
+      ],
+      "extend": [
+        [192, 264],
+        [212, 264],
+        [212, 288],
+        [192, 288]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 2,
+      "under": "shellM",
+      "layers": [["shellM"], ["shellL"], ["shellD"]],
+      "region": [
+        [204, 166],
+        [322, 162],
+        [322, 232],
+        [204, 222]
+      ],
+      "extend": [
+        [190, 180],
+        [214, 180],
+        [214, 214],
+        [190, 214]
+      ]
+    },
+    {
+      "name": "joystick",
+      "bone": "joystick",
+      "priority": 2,
+      "under": "white",
+      "layers": [["white", "glare"]],
+      "region": [
+        [220, 208],
+        [260, 208],
+        [260, 306],
+        [220, 306]
+      ]
+    },
+    {
+      "name": "eye_a",
+      "type": "eye",
+      "bone": "eye_a",
+      "region": [
+        [242, 166],
+        [271, 166],
+        [271, 197],
+        [242, 197]
+      ]
+    },
+    {
+      "name": "eye_b",
+      "type": "eye",
+      "bone": "eye_b",
+      "region": [
+        [267, 168],
+        [296, 168],
+        [296, 199],
+        [267, 199]
+      ]
+    },
+    {
+      "name": "window_ring",
+      "bone": "rocket",
+      "priority": 0,
+      "under": "ring",
+      "layers": [["ring"]],
+      "shared": true,
+      "fillHoles": false,
+      "region": [
+        [58, 8],
+        [382, 8],
+        [382, 334],
+        [58, 334]
+      ]
+    }
+  ]
+}

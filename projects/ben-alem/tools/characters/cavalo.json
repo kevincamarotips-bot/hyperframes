@@ -1,0 +1,285 @@
+{
+  "name": "cavalo",
+  "source": "img-075.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 20 (242×349 px). Bolha do capacete redesenhada (translúcida no original)",
+  "upscale": 4,
+  "smooth": 0.4,
+  "fallbackReach": 12,
+  "palette": {
+    "white": "#fefefe",
+    "tan": "#d9c4b0",
+    "shade": "#ded9d8",
+    "mane": "#a49788",
+    "ear": "#cbb396",
+    "muzzle": "#f1c48a",
+    "tail": "#897563",
+    "orange": "#ee8a0a",
+    "magenta": "#c74790",
+    "green": "#2f563a",
+    "black": "#262626"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [122, 345]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [122, 230]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [125, 165]
+    },
+    {
+      "name": "ear_l",
+      "parent": "head",
+      "pivot": [108, 60]
+    },
+    {
+      "name": "ear_r",
+      "parent": "head",
+      "pivot": [143, 60]
+    },
+    {
+      "name": "eye_l",
+      "parent": "head",
+      "pivot": [112, 90]
+    },
+    {
+      "name": "eye_l_pupil",
+      "parent": "eye_l",
+      "pivot": [112, 90]
+    },
+    {
+      "name": "eye_r",
+      "parent": "head",
+      "pivot": [142, 88]
+    },
+    {
+      "name": "eye_r_pupil",
+      "parent": "eye_r",
+      "pivot": [142, 88]
+    },
+    {
+      "name": "arm_l",
+      "parent": "body",
+      "pivot": [84, 182]
+    },
+    {
+      "name": "arm_r",
+      "parent": "body",
+      "pivot": [158, 180]
+    },
+    {
+      "name": "leg_l",
+      "parent": "body",
+      "pivot": [94, 286]
+    },
+    {
+      "name": "leg_r",
+      "parent": "body",
+      "pivot": [148, 286]
+    },
+    {
+      "name": "tail",
+      "parent": "body",
+      "pivot": [80, 262]
+    }
+  ],
+  "parts": [
+    {
+      "name": "tail",
+      "bone": "tail",
+      "priority": 2,
+      "under": "tail",
+      "layers": [["tail"]],
+      "region": [
+        [4, 204],
+        [82, 204],
+        [82, 272],
+        [4, 272]
+      ],
+      "extend": [
+        [70, 250],
+        [90, 250],
+        [90, 272],
+        [70, 272]
+      ]
+    },
+    {
+      "name": "leg_l",
+      "bone": "leg_l",
+      "priority": 2,
+      "under": "white",
+      "layers": [["white"], ["shade"], ["orange"]],
+      "region": [
+        [70, 280],
+        [112, 280],
+        [112, 349],
+        [66, 349]
+      ],
+      "extend": [
+        [78, 268],
+        [110, 268],
+        [110, 290],
+        [78, 290]
+      ]
+    },
+    {
+      "name": "leg_r",
+      "bone": "leg_r",
+      "priority": 2,
+      "under": "white",
+      "layers": [["white"], ["shade"], ["orange"]],
+      "region": [
+        [128, 280],
+        [170, 280],
+        [170, 349],
+        [128, 349]
+      ],
+      "extend": [
+        [130, 268],
+        [162, 268],
+        [162, 290],
+        [130, 290]
+      ]
+    },
+    {
+      "name": "arm_l",
+      "bone": "arm_l",
+      "priority": 2,
+      "under": "white",
+      "layers": [["white"], ["shade"], ["orange"]],
+      "region": [
+        [0, 130],
+        [84, 160],
+        [86, 214],
+        [40, 204],
+        [0, 174]
+      ],
+      "extend": [
+        [78, 168],
+        [98, 168],
+        [98, 200],
+        [78, 200]
+      ]
+    },
+    {
+      "name": "arm_r",
+      "bone": "arm_r",
+      "priority": 2,
+      "under": "white",
+      "layers": [["white"], ["shade"], ["orange"]],
+      "region": [
+        [150, 162],
+        [236, 126],
+        [236, 172],
+        [162, 208]
+      ],
+      "extend": [
+        [146, 166],
+        [166, 166],
+        [166, 198],
+        [146, 198]
+      ]
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "priority": 9,
+      "under": "white",
+      "layers": [["white"], ["shade"], ["magenta"], ["green"], ["orange"]]
+    },
+    {
+      "name": "bubble",
+      "type": "svg",
+      "bone": "head",
+      "svg": "<ellipse cx=\"124\" cy=\"104\" rx=\"95\" ry=\"62\" fill=\"#ffffff\" opacity=\"0.22\"/>"
+    },
+    {
+      "name": "ear_l",
+      "bone": "ear_l",
+      "priority": 2,
+      "under": "ear",
+      "layers": [["ear"], ["tan"], ["white", "shade"]],
+      "region": [
+        [92, 0],
+        [124, 0],
+        [124, 62],
+        [92, 62]
+      ],
+      "extend": [
+        [96, 56],
+        [122, 56],
+        [122, 74],
+        [96, 74]
+      ]
+    },
+    {
+      "name": "ear_r",
+      "bone": "ear_r",
+      "priority": 2,
+      "under": "ear",
+      "layers": [["ear"], ["tan"], ["white", "shade"]],
+      "region": [
+        [126, 0],
+        [164, 0],
+        [164, 64],
+        [126, 64]
+      ],
+      "extend": [
+        [128, 56],
+        [158, 56],
+        [158, 74],
+        [128, 74]
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 3,
+      "under": "tan",
+      "layers": [["tan"], ["mane"], ["muzzle"], ["ear"]],
+      "region": [
+        [50, 62],
+        [205, 62],
+        [205, 168],
+        [50, 168]
+      ]
+    },
+    {
+      "name": "eye_l",
+      "type": "eye",
+      "bone": "eye_l",
+      "region": [
+        [96, 74],
+        [126, 74],
+        [126, 106],
+        [96, 106]
+      ],
+      "pupilR": 4.2
+    },
+    {
+      "name": "eye_r",
+      "type": "eye",
+      "bone": "eye_r",
+      "region": [
+        [126, 72],
+        [158, 72],
+        [158, 104],
+        [126, 104]
+      ],
+      "pupilR": 4.2
+    },
+    {
+      "name": "glare",
+      "type": "svg",
+      "bone": "head",
+      "svg": "<path d=\"M40,138 C34,110 46,82 72,66\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" opacity=\"0.75\"/><circle cx=\"52\" cy=\"143\" r=\"2.5\" fill=\"#ffffff\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"72\" r=\"2.5\" fill=\"#ffffff\" opacity=\"0.8\"/>"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "name": "porco_espinho",
+  "source": "img-045.png",
+  "sourceNote": "AF-BEN-ALEM-SeloP.pdf, página 13 (273×501 px)",
+  "upscale": 3,
+  "smooth": 0.4,
+  "palette": {
+    "black": "#000000",
+    "pink": "#e65588",
+    "salmon": "#ec727e",
+    "lilac": "#c779ac",
+    "purple": "#ae65a1",
+    "brown": "#514442",
+    "magenta": "#c7428d",
+    "white": "#fdfbfc",
+    "light": "#d8becb",
+    "face": "#8a7069"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "pivot": [116, 304]
+    },
+    {
+      "name": "balloons",
+      "parent": "root",
+      "pivot": [116, 300]
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [118, 308]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [170, 385]
+    },
+    {
+      "name": "eye",
+      "parent": "head",
+      "pivot": [190, 372]
+    },
+    {
+      "name": "eye_pupil",
+      "parent": "eye",
+      "pivot": [190, 372]
+    },
+    {
+      "name": "leg_a",
+      "parent": "body",
+      "pivot": [97, 436]
+    },
+    {
+      "name": "leg_b",
+      "parent": "body",
+      "pivot": [146, 440]
+    }
+  ],
+  "parts": [
+    {
+      "name": "balloons",
+      "bone": "balloons",
+      "priority": 1,
+      "under": "salmon",
+      "layers": [["salmon"], ["lilac"], ["purple"], ["pink"], ["magenta"], ["white", "light"]],
+      "region": [
+        [0, 0],
+        [273, 0],
+        [273, 214],
+        [232, 226],
+        [162, 298],
+        [122, 312],
+        [100, 300],
+        [0, 232]
+      ],
+      "fillHoles": false
+    },
+    {
+      "name": "leg_a",
+      "bone": "leg_a",
+      "priority": 2,
+      "under": "brown",
+      "layers": [["brown"], ["face"]],
+      "region": [
+        [80, 432],
+        [114, 432],
+        [114, 478],
+        [80, 478]
+      ],
+      "extend": [
+        [86, 418],
+        [112, 418],
+        [112, 440],
+        [86, 440]
+      ]
+    },
+    {
+      "name": "leg_b",
+      "bone": "leg_b",
+      "priority": 2,
+      "under": "brown",
+      "layers": [["brown"], ["face"]],
+      "region": [
+        [128, 436],
+        [164, 436],
+        [164, 478],
+        [128, 478]
+      ],
+      "extend": [
+        [132, 420],
+        [160, 420],
+        [160, 442],
+        [132, 442]
+      ]
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "priority": 9,
+      "under": "black",
+      "layers": [["black"], ["brown"], ["face"], ["white", "light"]]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "priority": 3,
+      "under": "brown",
+      "layers": [["brown"], ["face"], ["black"]],
+      "region": [
+        [172, 350],
+        [200, 345],
+        [212, 400],
+        [186, 422],
+        [168, 402]
+      ],
+      "extend": [
+        [150, 350],
+        [172, 350],
+        [172, 400],
+        [150, 400]
+      ]
+    },
+    {
+      "name": "eye",
+      "type": "eye",
+      "bone": "eye",
+      "region": [
+        [174, 354],
+        [206, 354],
+        [206, 388],
+        [174, 388]
+      ]
+    }
+  ]
+}
